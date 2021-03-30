@@ -1,0 +1,90 @@
+.boxGroup {
+  height: 7rem;
+  width: 65rem;
+  max-width: 100%;
+  background: #353b48;
+  border-radius: 5px;
+
+  padding: 0 1rem;
+  display: flex;
+  //  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+
+  @include respond(phone) {
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  &:hover {
+    background: #252c32;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
+}
+
+.box {
+
+  @include respond(phone){
+    text-align: center;
+    &:not(:last-of-type){
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__name,
+  &__country,
+  &__score {
+    font-size: 1.3rem;
+  }
+
+  &__name {
+    font-weight: 800;
+  }
+  &__date {
+    font-size: 0.95rem;
+    font-weight: 200;
+  }
+  & p {
+    color: #dcdde1;
+  }
+
+  &--1 {
+    width: 100%;
+    min-width: 20rem;
+    @include respond(phone) {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  &--2 {
+    //display: block;
+    //height: 100%;
+    width: 45rem;
+    min-width: 10rem;
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+  &--3 {
+    //display: block;
+    //height: 100%;
+    width: 25rem;
+    min-width: 3rem;
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+  &--4 {
+    //display: block;
+    //height: 100%;
+    width: auto;
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.formGroup {
+  display: flex;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-of-type) {
+    margin-right: 1rem;
+
+    @include respond(phone) {
+      margin-bottom: 0.8rem;
+    }
+  }
+  &--3 {
+    @include respond(tab-port) {
+      margin-right: 0 !important;
+    }
+  }
+
+  &--4{
+    @include respond(tab-port){
+      margin-top: 1rem !important;
+    }
+    @include respond(phone){
+      margin-top: 0 !important;
+    }
+  }
+
+  @include respond(phone) {
+    margin-right: 0 !important;
+  }
+
+  & label {
+    font-size: 1.4rem;
+    color: #dcdde1;
+    margin-bottom: 0.2rem;
+
+    @include respond(phone){
+      font-size: 1.2rem;
+    }
+  }
+  & input {
+    font-size: 1.4rem;
+    width: 14rem;
+    border: 2px solid #e67e22;
+    padding: 0.2rem 0.5rem;
+    transition: all 0.2s;
+
+    @include respond(phone){
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      border: 2px solid #27ae60;
+    }
+  }
+}
+
+.error {
+  border: 2px solid #e84118;
+}

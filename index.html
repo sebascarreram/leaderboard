@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="#" />
+    <title>Leaderboard</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Leaderboard</h1>
+      <div class="formGroup">
+        <div class="form form--1">
+          <label for="name">Name:</label>
+          <input type="text" name="formGroup__name" id="name" />
+        </div>
+        <div class="form form--2">
+          <label for="lastname">Last name:</label>
+          <input type="text" name="lastname" id="lastname" />
+        </div>
+        <div class="form form--3">
+          <label for="country">Country:</label>
+          <input type="text" name="country" id="country" />
+        </div>
+        <div class="form form--4">
+          <label for="score">Player score:</label>
+          <input type="text" name="score" id="score" />
+        </div>
+      </div>
+      <button class="btn">Add player</button>
+    </header>
+    <main>
+      <section class="section">
+        <div class="boxGroup">
+          <div class="box box--1">
+            <p class="box__name">Sebastian Carrera</p>
+            <p class="box__date">JAN 30, 2021 01:30</p>
+          </div>
+          <div class="box box--2">
+            <p class="box__country">Finland</p>
+          </div>
+          <div class="box box--3">
+            <p class="box__score">86</p>
+          </div>
+          <div class="box box--4">
+            <div class="btnsGroup">
+              <button class="btnsGroup__btn btnsGroup--delete">
+                <svg class="btnsGroup__icon icon-bin">
+                  <use xlink:href="assets/icons/icons.svg#icon-bin"></use>
+                </svg>
+              </button>
+              <button class="btnsGroup__btn btnsGroup--addFive">+5</button>
+              <button class="btnsGroup__btn btnsGroup--minusFive">-5</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="boxGroup">
+          <div class="box box--1">
+            <p class="box__name">Sofia Carrera</p>
+            <p class="box__date">Dec 30, 2021 01:30</p>
+          </div>
+          <div class="box box--2">
+            <p class="box__country">USA</p>
+          </div>
+          <div class="box box--3">
+            <p class="box__score">100</p>
+          </div>
+          <div class="box box--4">
+            <div class="btnsGroup">
+              <button class="btnsGroup__btn btnsGroup--delete">
+                <svg class="btnsGroup__icon icon-bin">
+                  <use xlink:href="assets/icons/icons.svg#icon-bin"></use>
+                </svg>
+              </button>
+              <button class="btnsGroup__btn btnsGroup--addFive">+5</button>
+              <button class="btnsGroup__btn btnsGroup--minusFive">-5</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
