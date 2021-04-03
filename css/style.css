@@ -116,6 +116,28 @@ html {
   100% {
     transform: rotate(360deg); } }
 
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 40rem;
+  /* Full width */
+  height: 25rem;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px; }
+
 .header {
   height: 20rem;
   display: flex;

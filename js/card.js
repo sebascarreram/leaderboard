@@ -1,12 +1,12 @@
-import { elements } from './elements.js'
+import { elements } from "./elements.js";
 
-export const card = info => {
-  if (!info){
-    console.log("There are no items")
-    return
+export const card = (info) => {
+  if (!info) {
+    console.log("There are no items");
+    return;
   }
   const markup = `
-		<div class="boxGroup">
+		<div id=${info.id} class="boxGroup">
     	<div class="box box--1">
         <p class="box__name">${info.name} ${info.lastname}</p>
         <p class="box__date">${info.date}</p>
@@ -33,4 +33,19 @@ export const card = info => {
   elements.section.insertAdjacentHTML("beforeend", markup);
 };
 
+export const cardModal = () => {
+  const markup = `
+    <div class="modal__overlay"></div>
+    <div class="modal">
+     <div class="modal__header">
+      <h3>Confirmation</h3>
+      <p>Are you sure you want to remove this player?</p>
+     </div>
+     <div class="modal__button">
+        <button>Cancel</button>
+        <button>Yes, remove it</button>
+     </div>
+    </div>`;
 
+  elements.main.insertAdjacentHTML("beforebegin", markup);
+};

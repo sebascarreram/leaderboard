@@ -1,6 +1,12 @@
 import { getMonth, getTime } from "./js/date.js";
-import { card } from "./js/card.js";
-import { elements } from "./js/elements.js";
+import { card, cardModal } from "./js/card.js";
+import {
+	elements,
+	deleteOneItem,
+	deleteAllItems,
+	persistData,
+} from "./js/elements.js";
+import { cardWarning } from "./js/cardWarning.js";
 
 const allFields = function () {
 	if (
@@ -54,20 +60,14 @@ elements.button.addEventListener("click", () => {
 		return;
 	}
 
-	const arrayFull = [];
-
-	arrayFull.push({
-		name: elements.name.value,
-		lastname: elements.lastname.value,
-		date: dateNow(),
-		country: elements.country.value,
-		score: elements.score.value,
-	});
-
 	let arraySet = [];
 	arraySet = JSON.parse(localStorage.getItem("info")) || [];
 
+	// ID
+	const arraySetLen = arraySet.length;
+
 	arraySet.push({
+		id: arraySetLen,
 		name: elements.name.value,
 		lastname: elements.lastname.value,
 		date: dateNow(),
@@ -76,8 +76,7 @@ elements.button.addEventListener("click", () => {
 	});
 
 	//	console.log(arraySet);
-	localStorage.setItem("info", JSON.stringify(arraySet));
-	//localStorage.setItem("info", arraySet);
+	persistData(arraySet);
 
 	if (arraySet) {
 		const len = arraySet.length;
@@ -103,4 +102,38 @@ elements.button.addEventListener("click", () => {
 			card(la);
 		});
 	}
+	//const ab = JSON.parse(localStorage.getItem("info"));
+
+	//console.log(ab);
 })();
+
+const ab = document.querySelectorAll(".btnsGroup--delete");
+
+const getInfo = JSON.parse(localStorage.getItem("info"));
+//console.log(typeof getInfo[2].id);
+
+ab.forEach((el) => {
+	console.log(el);
+	el.addEventListener("click", (la) => {
+		//		console.log(la)
+		if (la.type === "click") {
+			// parseInt(la.path[3].id) || parseInt(la.path[4].id) || parseInt(la.path[5].id)
+
+			const copyArray = [...getInfo];
+			const result = deleteOneItem(
+				copyArray,
+				la.path[3].id || la.path[4].id || la.path[5].id
+			);
+
+			const id = document.getElementById(
+				la.path[3].id || la.path[4].id || la.path[5].id
+			);
+
+			// remove a player in list
+			id.remove();
+			// Perist data in localStorage
+			persistData(result);
+		}
+		//console.log(la.path)
+	});
+});
