@@ -6,49 +6,67 @@
   border-radius: 10px;
   border: none;
 
-  @include respond(phone){
+  @include respond(phone) {
     width: 100%;
   }
+  &__add {
+    background: #e67e22;
 
-  background: #e67e22;
-  &:hover {
-    background: #a16418;
+    &:hover {
+      background: #a16418;
+    }
+  }
+
+  &__remove {
+    background: #e74c3c;
+    color: #ecf0f1;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #c0392b;
+    }
+  }
+  &__cancel {
+    transition: all 0.2s;
+    &:hover {
+      background: #bdc3c7;
+    }
   }
 }
-.btnsGroup{
+.btnsGroup {
   display: flex;
 
-  @include respond(phone){
+  @include respond(phone) {
     justify-content: center;
   }
 
-  &__icon{
+  &__icon {
     //display: block;
     height: 20px;
     width: 20px;
     fill: #e84118;
   }
-  &--delete{
+  &--delete {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  &__btn{
+  &__btn {
     display: block;
     height: 50px;
     width: 50px;
     border-radius: 50%;
     border: none;
-    transition: all .2s;
+    transition: all 0.2s;
     font-size: 1rem;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       background: #2ecc71;
     }
 
-    &:not(:last-of-type){
+    &:not(:last-of-type) {
       margin-right: 1rem;
     }
   }

@@ -20,13 +20,24 @@ html {
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 10px;
-  border: none;
-  background: #e67e22; }
+  border: none; }
   @media only screen and (max-width: 37.5em) {
     .btn {
       width: 100%; } }
-  .btn:hover {
-    background: #a16418; }
+  .btn__add {
+    background: #e67e22; }
+    .btn__add:hover {
+      background: #a16418; }
+  .btn__remove {
+    background: #e74c3c;
+    color: #ecf0f1;
+    transition: all 0.2s; }
+    .btn__remove:hover {
+      background: #c0392b; }
+  .btn__cancel {
+    transition: all 0.2s; }
+    .btn__cancel:hover {
+      background: #bdc3c7; }
 
 .btnsGroup {
   display: flex; }
@@ -47,7 +58,7 @@ html {
     width: 50px;
     border-radius: 50%;
     border: none;
-    transition: all .2s;
+    transition: all 0.2s;
     font-size: 1rem;
     cursor: pointer; }
     .btnsGroup__btn:hover {
@@ -118,21 +129,43 @@ html {
 
 .modal {
   display: none;
-  /* Hidden by default */
+  justify-content: center;
+  align-items: center;
   position: fixed;
   /* Stay in place */
   z-index: 1;
   /* Sit on top */
   left: 0;
   top: 0;
-  width: 40rem;
-  /* Full width */
-  height: 25rem;
-  /* Full height */
+  width: 100%;
+  height: 100%;
   overflow: auto;
-  /* Enable scroll if needed */
-  background-color: #474e5d;
-  padding-top: 50px; }
+  background-color: red;
+  background: #0f2027;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #2c5364, #203a43, #0f2027);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #2c5364, #203a43, #0f2027);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+  .modal__content {
+    background-color: #ecf0f1;
+    width: 35rem;
+    height: 20rem;
+    overflow: auto;
+    /* Enable scroll if needed */
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000; }
+    .modal__content h3 {
+      font-size: 2rem; }
+    .modal__content p {
+      font-size: 1.5rem; }
+  .modal__button {
+    margin-top: 2rem; }
 
 .header {
   height: 20rem;
