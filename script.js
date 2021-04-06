@@ -1,5 +1,6 @@
 import { getMonth, getTime } from "./js/date.js";
 import { card, cardModal } from "./js/card.js";
+import { idUnique } from "./js/idUnique.js";
 import {
   elements,
   allPlayers,
@@ -71,13 +72,15 @@ elements.btnAdd.addEventListener("click", () => {
 
   const arraySetLen = arraySet.length;
 
+  // .trim() -> it removes whitespace from both sides of a string:
   arraySet.push({
     id: arraySetLen,
-    name: elements.name.value,
-    lastname: elements.lastname.value,
+    name: elements.name.value.trim(),
+    lastname: elements.lastname.value.trim(),
     date: dateNow(),
-    country: elements.country.value,
-    score: elements.score.value,
+    country: elements.country.value.trim(),
+    // this + sign is converting to Number
+    score: +elements.score.value,
   });
 
   //	console.log(arraySet);
