@@ -53,7 +53,8 @@ const removeValue = () => {
   elements.country.value = "";
   elements.score.value = "";
 };
-
+//
+//
 elements.btnAdd.addEventListener("click", () => {
   // - errors -
   // All inputs don't be empty
@@ -70,11 +71,9 @@ elements.btnAdd.addEventListener("click", () => {
   let arraySet = [];
   arraySet = JSON.parse(localStorage.getItem("info")) || [];
 
-  const arraySetLen = arraySet.length;
-
   // .trim() -> it removes whitespace from both sides of a string:
   arraySet.push({
-    id: arraySetLen,
+    id: idUnique(),
     name: elements.name.value.trim(),
     lastname: elements.lastname.value.trim(),
     date: dateNow(),
@@ -96,7 +95,7 @@ elements.btnAdd.addEventListener("click", () => {
   }
   // remove all value in input
   removeValue();
-  //
+  location.reload()
 });
 
 const deleteBtns = document.querySelectorAll(".btnsGroup--delete");
@@ -117,27 +116,26 @@ window.onclick = function (event) {
 
 deleteBtns.forEach((el) => {
   el.addEventListener("click", (la) => {
+    console.log(la.target.id);
+    console.log(la);
     modal.style.display = "flex";
 
+    // Button YES - to remove
     btnYesConfirm.addEventListener("click", () => {
       modal.style.display = "none";
       // parseInt(la.path[3].id) || parseInt(la.path[4].id) || parseInt(la.path[5].id)
 
       //const copyArray = [...getInfo];
-      const result = deleteOneItem(
-        getInfo,
-        la.path[3].id || la.path[4].id || la.path[5].id
-      );
+      const result = deleteOneItem(getInfo, la.target.id);
 
-      const id = document.getElementById(
-        la.path[3].id || la.path[4].id || la.path[5].id
-      );
+      const id = document.getElementById(la.target.id);
 
       // remove a player in list
       id.remove();
       // Perist data in localStorage
       persistData(result);
-      console.log("REMOVED");
+      //console.log("REMOVED");
+      location.reload()
     });
   });
 });
