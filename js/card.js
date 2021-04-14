@@ -19,9 +19,9 @@ export const card = (info, onModal) => {
       </div>
       <div class="box box--4">
       <div class="btnsGroup">
-        <button onclick=${onModal} class="btnsGroup__btn btnsGroup--delete">
-          <svg class="btnsGroup__icon icon-bin">
-            <use xlink:href="assets/icons/icons.svg#icon-bin"></use>
+        <button id=${info.id} class="btnsGroup__btn btnsGroup--delete">
+          <svg id=${info.id} class="btnsGroup__icon icon-bin">
+            <use id=${info.id} xlink:href="assets/icons/icons.svg#icon-bin"></use>
           </svg>
         </button>
         <button class="btnsGroup__btn btnsGroup--addFive">+5</button>
