@@ -12,15 +12,21 @@ export const elements = {
 };
 
 export const deleteOneItem = function (array, value) {
-	// strin to number
-	const strToNbr = +value;
 	//console.log(array)
 	return array.filter(function (ele) {
-		return ele.id != strToNbr;
+		return ele.id != value;
 	});
 };
 
-export const deleteAllItems = function () {};
+export const getPlayers = function () {
+	//callback(JSON.parse(localStorage.getItem("info")))
+	return JSON.parse(localStorage.getItem("info"));
+};
+
+// removing all the localStorage items
+export const deleteAllItems = function () {
+	return localStorage.clear();
+};
 
 export const persistData = function (arr) {
 	return localStorage.setItem("info", JSON.stringify(arr));
