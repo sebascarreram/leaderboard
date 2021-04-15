@@ -39,20 +39,20 @@ html {
     .btn__cancel:hover {
       background: #bdc3c7; }
 
-.btnsGroup {
+.btnGroup {
   display: flex; }
   @media only screen and (max-width: 37.5em) {
-    .btnsGroup {
+    .btnGroup {
       justify-content: center; } }
-  .btnsGroup__icon {
+  .btnGroup__icon {
     height: 20px;
     width: 20px;
     fill: #e84118; }
-  .btnsGroup--delete {
+  .btnGroup--delete {
     display: flex;
     justify-content: center;
     align-items: center; }
-  .btnsGroup__btn {
+  .btnGroup__btn {
     display: block;
     height: 50px;
     width: 50px;
@@ -61,9 +61,9 @@ html {
     transition: all 0.2s;
     font-size: 1rem;
     cursor: pointer; }
-    .btnsGroup__btn:hover {
+    .btnGroup__btn:hover {
       background: #2ecc71; }
-    .btnsGroup__btn:not(:last-of-type) {
+    .btnGroup__btn:not(:last-of-type) {
       margin-right: 1rem; }
 
 .formGroup {
