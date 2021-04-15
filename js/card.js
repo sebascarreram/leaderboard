@@ -18,14 +18,14 @@ export const card = (info, onModal) => {
         <p class="box__score">${info.score}</p>
       </div>
       <div class="box box--4">
-      <div class="btnsGroup">
-        <button id=${info.id} class="btnsGroup__btn btnsGroup--delete">
-          <svg id=${info.id} class="btnsGroup__icon icon-bin">
+      <div class="btnGroup">
+        <button id=${info.id} class="btnGroup__btn btnGroup--delete">
+          <svg id=${info.id} class="btnGroup__icon icon-bin">
             <use id=${info.id} xlink:href="assets/icons/icons.svg#icon-bin"></use>
           </svg>
         </button>
-        <button class="btnsGroup__btn btnsGroup--addFive">+5</button>
-        <button class="btnsGroup__btn btnsGroup--minusFive">-5</button>
+        <button id=${info.id} class="btnGroup__btn btnGroup--addFive">+5</button>
+        <button id=${info.id} class="btnGroup__btn btnGroup--minusFive">-5</button>
       </div>
     </div>
   </div>
