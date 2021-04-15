@@ -9,6 +9,7 @@ export const elements = {
   btnRemove: document.querySelectorAll(".btnGroup--delete"),
   btnYesConfirm: document.querySelector(".btn__remove"),
   modal: document.querySelector(".modal"),
+	header: document.querySelector(".header"),
 };
 
 export const deleteOneItem = function (array, value) {

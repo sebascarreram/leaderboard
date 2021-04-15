@@ -1,5 +1,5 @@
 import { getMonth, getTime } from "./js/date.js";
-import { card, cardModal } from "./js/card.js";
+import { card, cardModal, error } from "./js/card.js";
 import { idUnique } from "./js/idUnique.js";
 import {
   elements,
@@ -56,16 +56,23 @@ const removeValue = () => {
 };
 //
 //
+//
 elements.btnAdd.addEventListener("click", () => {
+  const errorP = document.querySelector(".error");
+  let errorFalse = false;
   // - errors -
   // All inputs don't be empty
   if (!allFields()) {
-    console.log("All fields are required");
+    //console.log("All fields are required");
+    error("All fields are required");
+    errorFalse = true;
     return;
   }
   // Score input must be just NUMBERS
   if (!inputNumber(score.value)) {
-    console.log("Input must be a number");
+    //console.log("Input must be a number");
+    error("Input must be a number");
+    errorFalse = true;
     return;
   }
 
@@ -96,6 +103,9 @@ elements.btnAdd.addEventListener("click", () => {
   }
   // remove all value in input
   removeValue();
+  if (errorFalse) {
+    errorP.remove();
+  }
   location.reload();
 });
 

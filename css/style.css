@@ -66,6 +66,11 @@ html {
     .btnGroup__btn:not(:last-of-type) {
       margin-right: 1rem; }
 
+.error {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: red; }
+
 .formGroup {
   display: flex;
   margin-top: 1.5rem;

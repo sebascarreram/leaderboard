@@ -33,7 +33,12 @@ export const card = (info, onModal) => {
   elements.section.insertAdjacentHTML("beforeend", markup);
 };
 
-const closeOver = function () {};
+export const error = (text) => {
+  const markup = `
+  <p class="error">${text}</p>
+  `;
+  elements.header.insertAdjacentHTML("beforeend", markup);
+};
 
 export const cardModal = () => {
   const markup = `
