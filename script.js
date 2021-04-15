@@ -3,16 +3,17 @@ import { card, cardModal } from "./js/card.js";
 import { idUnique } from "./js/idUnique.js";
 import {
   elements,
-  allPlayers,
+  viewAllPlayers,
   deleteOneItem,
   deleteAllItems,
   persistData,
+  getPlayers,
 } from "./js/elements.js";
 import { cardWarning } from "./js/cardWarning.js";
 
 //
 // All Players
-allPlayers(card, cardModal);
+viewAllPlayers(card, cardModal);
 //
 //
 const allFields = function () {
@@ -95,10 +96,10 @@ elements.btnAdd.addEventListener("click", () => {
   }
   // remove all value in input
   removeValue();
-  location.reload()
+  location.reload();
 });
 
-const deleteBtns = document.querySelectorAll(".btnsGroup--delete");
+const deleteBtn = document.querySelectorAll(".btnGroup--delete");
 
 const getInfo = JSON.parse(localStorage.getItem("info"));
 //
@@ -114,7 +115,7 @@ window.onclick = function (event) {
   }
 };
 
-deleteBtns.forEach((el) => {
+deleteBtn.forEach((el) => {
   el.addEventListener("click", (la) => {
     console.log(la.target.id);
     console.log(la);
@@ -132,10 +133,42 @@ deleteBtns.forEach((el) => {
 
       // remove a player in list
       id.remove();
-      // Perist data in localStorage
+      // Persist data in localStorage
       persistData(result);
       //console.log("REMOVED");
-      location.reload()
+      location.reload();
     });
+  });
+});
+
+``;
+const btnAdd = document.querySelectorAll(".btnGroup--addFive");
+const btnMinus = document.querySelectorAll(".btnGroup--minusFive");
+
+btnAdd.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    // it's find 1 player by ID after +5
+    const playerOne = getPlayers().map((player) => {
+      if (e.target.id === player.id) {
+        player.score += 5;
+      }
+      return player;
+    });
+    persistData(playerOne);
+    location.reload();
+  });
+});
+
+btnMinus.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    // it's find 1 player by ID after -5
+    const playerOne = getPlayers().map((player) => {
+      if (e.target.id === player.id) {
+        player.score -= 5;
+      }
+      return player;
+    });
+    persistData(playerOne);
+    location.reload();
   });
 });
