@@ -38,6 +38,11 @@ html {
     transition: all 0.2s; }
     .btn__cancel:hover {
       background: #bdc3c7; }
+  .btn__allRemove {
+    align-self: flex-end;
+    background: #e74c3c; }
+    .btn__allRemove:hover {
+      background: #c0392b; }
 
 .btnGroup {
   display: flex; }
@@ -67,8 +72,8 @@ html {
       margin-right: 1rem; }
 
 .error {
-  margin-top: 1rem;
   font-size: 1.4rem;
+  margin-top: 0.5rem;
   color: red; }
 
 .formGroup {
@@ -173,19 +178,20 @@ html {
     margin-top: 2rem; }
 
 .header {
-  height: 20rem;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #353b48; }
+  background: #353b48;
+  padding: 1rem; }
   @media only screen and (max-width: 56.25em) {
     .header {
       height: 25rem; } }
   @media only screen and (max-width: 37.5em) {
     .header {
-      height: 30rem;
-      padding: 0 1.1rem; } }
+      height: auto;
+      padding: 1.1rem; } }
   .header h1 {
     text-align: center;
     font-size: 4rem;
