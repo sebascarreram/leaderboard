@@ -9,7 +9,6 @@ import {
   persistData,
   getPlayers,
 } from "./js/elements.js";
-import { cardWarning } from "./js/cardWarning.js";
 
 //
 // All Players
