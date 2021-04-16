@@ -32,6 +32,17 @@
       background: #bdc3c7;
     }
   }
+  &__allRemove {
+    align-self: flex-end;
+
+    background: #e74c3c;
+
+
+    &:hover{
+      background: #c0392b;
+    }
+
+  }
 }
 .btnGroup {
   display: flex;
