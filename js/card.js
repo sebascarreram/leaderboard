@@ -49,14 +49,19 @@ export const cardModal = () => {
       <div class="modal__button">
         <button 
           onclick="document.getElementById('modal').style.display='none',
-          document.querySelector('.modal__overlay')"
+          document.querySelector('.modal__overlay'), document.querySelector('.btn__remove').textContent = 'a'"
           class="btn btn__cancel">
           Cancel
         </button>
-        <button class="btn btn__remove">Yes, remove it</button>
+        <button class="btn btn__remove"></button>
      </div>
      </div>
          </div>`;
 
   elements.main.insertAdjacentHTML("beforeend", markup);
+};
+
+export const buttonRemoveAll = () => {
+  const markup = `<button class="btn btn__allRemove">Delete all players</button>`;
+  elements.header.insertAdjacentHTML("beforeend", markup);
 };

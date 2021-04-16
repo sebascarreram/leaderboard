@@ -1,3 +1,5 @@
+import { card, cardModal, buttonRemoveAll } from "./card.js";
+
 export const elements = {
   name: document.getElementById("name"),
   lastname: document.getElementById("lastname"),
@@ -9,7 +11,8 @@ export const elements = {
   btnRemove: document.querySelectorAll(".btnGroup--delete"),
   btnYesConfirm: document.querySelector(".btn__remove"),
   modal: document.querySelector(".modal"),
-	header: document.querySelector(".header"),
+  header: document.querySelector(".header"),
+  removeAll: document.querySelector(".btn__allRemove"),
 };
 
 export const deleteOneItem = function (array, value) {
@@ -33,20 +36,25 @@ export const persistData = function (arr) {
   return localStorage.setItem("info", JSON.stringify(arr));
 };
 
-export const viewAllPlayers = function (card, cardModal) {
+export const viewAllPlayers = function () {
   return (() => {
     try {
       const info = JSON.parse(localStorage.getItem("info"));
-			info.sort(function(a, b){ return b.score - a.score })
+      if (info) {
+        info.sort(function (a, b) {
+          return b.score - a.score;
+        });
+      }
 
       if (info) {
         info.forEach((la) => {
           card(la);
         });
+        // Show button 'Delete all players'
+        buttonRemoveAll();
       }
-      cardModal();
-      //const ab = JSON.parse(localStorage.getItem("info"));
 
+      cardModal();
       //console.log(ab);
     } catch (err) {
       console.log(err.message);

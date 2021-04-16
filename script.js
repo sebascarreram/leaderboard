@@ -13,7 +13,7 @@ import { cardWarning } from "./js/cardWarning.js";
 
 //
 // All Players
-viewAllPlayers(card, cardModal);
+viewAllPlayers();
 //
 //
 const allFields = function () {
@@ -127,10 +127,9 @@ window.onclick = function (event) {
 
 deleteBtn.forEach((el) => {
   el.addEventListener("click", (la) => {
-    console.log(la.target.id);
-    console.log(la);
     modal.style.display = "flex";
 
+    btnYesConfirm.textContent = "Yes, remove it";
     // Button YES - to remove
     btnYesConfirm.addEventListener("click", () => {
       modal.style.display = "none";
@@ -146,6 +145,8 @@ deleteBtn.forEach((el) => {
       // Persist data in localStorage
       persistData(result);
       //console.log("REMOVED");
+      btnYesConfirm.textContent = "";
+
       location.reload();
     });
   });
@@ -182,3 +183,19 @@ btnMinus.forEach((btn) => {
     location.reload();
   });
 });
+
+const btnAllRemove = document.querySelector(".btn__allRemove");
+
+if (btnAllRemove) {
+  btnAllRemove.addEventListener("click", (e) => {
+    modal.style.display = "flex";
+    btnYesConfirm.textContent = "Yes, remove all";
+
+    btnYesConfirm.addEventListener("click", () => {
+      modal.style.display = "none";
+      deleteAllItems();
+      btnYesConfirm.textContent = "";
+      location.reload();
+    });
+  });
+}
