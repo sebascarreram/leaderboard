@@ -17,9 +17,9 @@ viewAllPlayers();
 //
 const allFields = function () {
   if (
-    !elements.name.value &&
-    !elements.lastname.value &&
-    !elements.country.value &&
+    !elements.name.value ||
+    !elements.lastname.value ||
+    !elements.country.value ||
     !elements.score.value
   ) {
     return false;
@@ -56,14 +56,33 @@ const removeValue = () => {
 //
 //
 //
+// don't allowed inputs empty
+elements.allInput.forEach((input) => {
+  input.addEventListener("input", (event) => {
+    console.log(event.target);
+    const errorP = document.querySelector(".error");
+    // if errorP is active when some or all input are empty
+    if (errorP) {
+      // when user writes in input and remove error
+      if (event.target.value) {
+        elements.btnAdd.style.background = "#e67e22";
+        elements.btnAdd.disabled = false;
+        errorP.remove();
+      }
+    }
+  });
+});
+
 elements.btnAdd.addEventListener("click", () => {
   const errorP = document.querySelector(".error");
   let errorFalse = false;
   // - errors -
   // All inputs don't be empty
-  if (!allFields()) {
+  if (!allFields() && !elements.removeAll) {
     //console.log("All fields are required");
     error("All fields are required");
+    elements.btnAdd.disabled = true;
+    elements.btnAdd.style.background = "#95a5a6";
     errorFalse = true;
     return;
   }

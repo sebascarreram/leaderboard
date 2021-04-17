@@ -5,7 +5,7 @@ export const elements = {
   lastname: document.getElementById("lastname"),
   country: document.getElementById("country"),
   score: document.getElementById("score"),
-  btnAdd: document.querySelector(".btn"),
+  btnAdd: document.querySelector(".btn__add"),
   main: document.querySelector("main"),
   section: document.querySelector(".section"),
   btnRemove: document.querySelectorAll(".btnGroup--delete"),
@@ -13,6 +13,7 @@ export const elements = {
   modal: document.querySelector(".modal"),
   header: document.querySelector(".header"),
   removeAll: document.querySelector(".btn__allRemove"),
+  allInput:  document.querySelectorAll("input"),
 };
 
 export const deleteOneItem = function (array, value) {
