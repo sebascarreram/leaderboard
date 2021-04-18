@@ -1,5 +1,5 @@
 import { getMonth, getTime } from "./js/date.js";
-import { card, cardModal, error } from "./js/card.js";
+import { card, error } from "./js/card.js";
 import { idUnique } from "./js/idUnique.js";
 import {
   elements,
@@ -59,7 +59,6 @@ const removeValue = () => {
 // don't allowed inputs empty
 elements.allInput.forEach((input) => {
   input.addEventListener("input", (event) => {
-    console.log(event.target);
     const errorP = document.querySelector(".error");
     // if errorP is active when some or all input are empty
     if (errorP) {
@@ -164,6 +163,9 @@ deleteBtn.forEach((el) => {
       persistData(result);
       //console.log("REMOVED");
       btnYesConfirm.textContent = "";
+      if (!result.length) {
+        deleteAllItems();
+      }
 
       location.reload();
     });
