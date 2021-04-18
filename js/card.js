@@ -45,7 +45,7 @@ export const cardModal = () => {
     <div id="modal" class="modal">
      <div class="modal__content">
       <h3>Confirmation</h3>
-      <p>Are you sure you want to remove this player?</p>
+      <p class="header__info"></p>
       <div class="modal__button">
         <button 
           onclick="document.getElementById('modal').style.display='none',

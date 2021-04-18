@@ -131,6 +131,7 @@ const deleteBtn = document.querySelectorAll(".btnGroup--delete");
 const getInfo = JSON.parse(localStorage.getItem("info"));
 //
 const btnYesConfirm = document.querySelector(".btn__remove");
+const infoHeader = document.querySelector(".header__info");
 const modal = document.querySelector(".modal");
 
 // When the user clicks anywhere outside of the modal, close it
@@ -147,6 +148,7 @@ deleteBtn.forEach((el) => {
     modal.style.display = "flex";
 
     btnYesConfirm.textContent = "Yes, remove it";
+    infoHeader.textContent = "Are you sure you want to remove this player?";
     // Button YES - to remove
     btnYesConfirm.addEventListener("click", () => {
       modal.style.display = "none";
@@ -163,6 +165,7 @@ deleteBtn.forEach((el) => {
       persistData(result);
       //console.log("REMOVED");
       btnYesConfirm.textContent = "";
+      infoHeader.textContent = "";
       if (!result.length) {
         deleteAllItems();
       }
@@ -210,11 +213,13 @@ if (btnAllRemove) {
   btnAllRemove.addEventListener("click", (e) => {
     modal.style.display = "flex";
     btnYesConfirm.textContent = "Yes, remove all";
+    infoHeader.textContent = " Are you sure you want to remove all player?";
 
     btnYesConfirm.addEventListener("click", () => {
       modal.style.display = "none";
       deleteAllItems();
       btnYesConfirm.textContent = "";
+      infoHeader.textContent = "";
       location.reload();
     });
   });
